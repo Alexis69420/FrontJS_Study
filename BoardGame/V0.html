@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Board Game</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            /* Fusionner les bordures des cellules */
+        }
+
+        td {
+            background-color: whitesmoke;
+            /* Couleur de fond des cellules */
+            border: 1px solid black;
+            /* Bordure de 1 pixel de couleur noire */
+            width: 50px;
+            /* Largeur de chaque cellule (ajustez-la selon vos besoins) */
+            height: 50px;
+            /* Hauteur de chaque cellule (ajustez-la selon vos besoins) */
+            text-align: center;
+            /* Alignement du texte au centre de la cellule */
+        }
+
+        td.black {
+            background-color: black;
+            color: white;
+        }
+
+        td.white {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <select id="selectedGame" name="select">
+        <option value="0">Select a game</option>
+        <option value="1">Game 1 : Fill</option>
+        <option value="2">Game 2 : Crush</option>
+    </select>
+
+    <p id="joueur">Player : Black has to play</p>
+    <table>
+        <caption>Description of the table</caption>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    <p id="message"></p>
+
+    <script>
+        // Créer un tableau vide pour stocker le tableau 4x4
+        const lignes = 4;
+        const colonnes = 4;
+        let end = false;
+        let black = true;
+        let game = 0; //no game by default
+
+        const cells = document.querySelectorAll('td');
+        const message = document.getElementById('message');
+        const joueur = document.getElementById('joueur');
+        const selectedGame = document.getElementById('selectedGame');
+
+        function playerName(p) {
+            return p ? 'Black' : 'White';
+        }
+
+        function opponentName(p) {
+            return p ? 'White' : 'Black';
+        }
+        function playerChar(p) {
+            return playerName(p).charAt(0);
+        }
+
+        function opponentChar(p) {
+            return opponentName(p).charAt(0);
+        }
+
+        function playFill(cell) {
+            if (end) return;
+
+            if (cell.textContent === ' ') {
+                cell.textContent = black ? 'B' : 'W';
+                cell.className = black ? 'black' : 'white';
+                black = !black;
+                joueur.textContent = 'Player : ' + playerName(black) + " has to play";
+
+            } else {
+                message.textContent = 'This cell is occupied: ' + opponentName(black) + ' wins!';
+                end = true;
+            }
+        }
+
+
+        function playCrush(cell) {
+            if (end) return;
+
+            if (cell.textContent === ' ') {
+                cell.textContent = black ? 'B' : 'W';
+                cell.className = black ? 'black' : 'white';
+                black = !black;
+                joueur.textContent = 'Player : ' + playerName(black) + " has to play";
+
+            }
+            else {
+                if (cell.textContent === playerChar(black)) {
+                    message.textContent = 'This cell is occupied by your own piece: ' + opponentName(black) + ' wins!';
+                }
+                else {
+                    message.textContent = 'This cell is occupied by your opponent: ' + playerName(black) + ' wins!';
+                }
+                end = true;
+            }
+
+        }
+
+
+        // Listener Section
+
+        //listener for each cell
+        cells.forEach(function (cell) {
+            cell.addEventListener('click', function () {
+                if (game === 1) {
+                    playFill(cell);
+                } else if (game === 2) {
+                    playCrush(cell);
+                }
+            });
+        });
+
+
+        //listener for the game selection
+        selectedGame.addEventListener('change', function () {
+            game = Number(selectedGame.value);
+            selectedGame.disabled = true;
+        });
+
+    </script>
+</body>
+
+</html>

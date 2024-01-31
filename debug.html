@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Page exemple</title>
+</head>
+
+<body>
+    <h1 id="titre">Titre</h1>
+    <p id="paragraphe1"> Bonjour </p>
+    <div id="images">
+        <img src="https://www.iut.u-bordeaux.fr/info/assets/images/info-2.jpg" alt="">
+        <img src="https://www.iut.u-bordeaux.fr/info/assets/images/cours.jpeg" alt="">
+    </div>
+    <div id="uneDiv">
+        <p>Images de l'IUT
+        <p>
+        <div>
+            <script>
+                let node = document.getElementById("titre");
+                console.log(node.nodeType);//1 Element Node
+                node = document.getElementById("paragraphe1");
+                console.log(node.nodeType);//1 Element Node
+                node = document.getElementById("images").firstChild;
+                console.log(node.nodeType);//3 Text Node (le retour à la ligne)
+                node = document.getElementById("images").firstElementChild;
+                console.log(node.nodeType);//1 (la première image)
+                node = document.getElementById("uneDiv");
+                console.log(node.nodeType);//1 Element Node
+                node = document.getElementById("uneDiv").attributes[0];
+                console.log(node.nodeType);//2 Attribut Node (l'id de la div)
+                node = document.getElementById("uneDiv").firstChild;
+                console.log(node.nodeType);//3 Text Node (encore une fois le retour à la ligne)
+                node = document.getElementById("uneDiv").firstElementChild;
+                console.log(node.nodeType);//1 Element Node (le paragraphe)
+                node = document.getElementById("uneDiv").firstElementChild.firstElementChild;
+                //console.log(node.nodeType);//rien car node vaut null car le text dans le paragraphe n'est pas un element. Cette ligne arrête l'excécution du script
+                node = document.getElementById("uneDiv").firstElementChild.firstChild;
+                console.log(node.nodeType);//3 Text Node (ici on a bien le texte dans le paragraphe)
+            </script>
+</body>
+
+</html>
