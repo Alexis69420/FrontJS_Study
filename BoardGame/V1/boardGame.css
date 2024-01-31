@@ -1,0 +1,103 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: lightblue;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.navbar .title {
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: fixed;
+}
+
+@media (max-width: 762px) {
+  .navbar .title {
+    display: none;
+  }
+}
+
+.navbar .commands {
+  margin: auto;
+}
+
+.navbar .commands .field {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.navbar .commands .field:last-of-type {
+  margin-right: 0;
+}
+
+.navbar .commands .field select {
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.navbar .commands button {
+  padding: 0.5rem;
+}
+
+.content {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#prompt {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#prompt::first-letter {
+  /* Mettre la première lettre en majuscule */
+  text-transform: uppercase;
+}
+
+table {
+  /* Fusionner les bordures des cellules */
+  border-collapse: collapse;
+}
+
+td {
+  background-color: white;
+  /* Bordure de 1 pixel de couleur noire */
+  border: 1px solid black;
+  /* Largeur de chaque cellule (ajustez-la selon vos besoins) */
+  width: 50px;
+  /* Hauteur de chaque cellule (ajustez-la selon vos besoins) */
+  height: 50px;
+  /* Alignement du texte au centre de la cellule */
+  text-align: center;
+  /* Petit effet de transition de couleurs */
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.black {
+  background-color: black;
+  color: white;
+}
+
+.grey {
+  background-color: lightgray;
+  color: black;
+}
+
+.win {
+  background-color: green;
+  color: white;
+}

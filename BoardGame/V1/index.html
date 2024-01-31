@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Game</title>
+  <link rel="stylesheet" href="boardGame.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="title">
+      Board Game
+    </div>
+    <div class="commands">
+      <div class="field">
+        <select id="type">
+          <option value="">Select a game...</option>
+          <option value="1">Fill</option>
+          <option value="2">Crush</option>
+        </select>
+      </div>
+      <div class="field">
+        <select id="size">
+          <option value="">Select a size...</option>
+          <option value="5">5x5</option>
+          <option value="8">8x8</option>
+          <option value="12">12x12</option>
+        </select>
+      </div>
+      <div class="field">
+        <button id="start">Start playing</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="prompt"></div>
+    <div id="game"></div>
+  </div>
+
+  <script type="module" src="boardGame.js"></script>
+</body>
+</html>
