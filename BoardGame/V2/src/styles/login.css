@@ -1,0 +1,17 @@
+#login {
+  padding: 2rem;
+}
+
+#login .field label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+#login .field input {
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+#login button {
+  margin-top: 1rem;
+}

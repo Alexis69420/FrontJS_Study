@@ -1,0 +1,40 @@
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: lightblue;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+#navbar .title {
+  margin-right: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  position: fixed;
+}
+
+@media (max-width: 762px) {
+  #navbar .title {
+    display: none;
+  }
+}
+
+#navbar .commands {
+  margin: auto;
+}
+
+#navbar .commands .field {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+#navbar .commands .field:last-of-type {
+  margin-right: 0;
+}
+
+#navbar .commands .field select {
+  border-radius: 4px;
+  padding: 0.5rem;
+}

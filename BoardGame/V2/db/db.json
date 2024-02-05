@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "nJournet",
+      "wins": 0,
+      "defeats": 0
+    },
+    {
+      "id": 2,
+      "login": "sFosse",
+      "wins": 0,
+      "defeats": 0
+    },
+    {
+      "id": 3,
+      "login": "eLeon",
+      "wins": 2,
+      "defeats": 1
+    },
+    {
+      "login": "toto",
+      "wins": 0,
+      "defeats": 0,
+      "id": 4
+    }
+  ]
+}

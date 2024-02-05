@@ -1,0 +1,17 @@
+@import "styles/login.css";
+@import "styles/navbar.css";
+@import "styles/game.css";
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+button {
+  min-width: 5rem;
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}
